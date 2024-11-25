@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Document</title>
+    <style>
+            .std {
+        background-image: url('assets/img/std.png');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        width: 100%; 
+        aspect-ratio: 1; 
+    }
+    .bg_badge{
+        background-image: url('assets/img/badge_black.png');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        /* width: 100%;  */
+        aspect-ratio: 1; 
+    }
+    </style>
+</head>
+<body>
+    <div class="flex flex-col items-center">
+        <h1 class="text-3xl font-medium">choisie le type formation</h1>
+        <select name="" id="" class="text-xl font-medium px-28 py-2 border border-gray-300 rounded-md">
+            <option value="">4-2-2-2</option>
+            <option value="">4-3-3</option>
+        </select>
+    </div>
+    <div class="std w-2/3 h-auto mx-auto">
+        <div class="relative top-48 flex justify-center gap-32 mx-auto">
+            <div class="bg_badge h-36 flex flex-col items-center justify-center ">
+                <button onclick="selectPlayer('ST')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
+            </div>
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('ST')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
+            </div>
+        </div>
+        <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button  onclick="selectPlayer('CAM')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
+            </div>
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('CAM')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
+            </div>
+        </div>
+        <div class="relative top-24 flex justify-center gap-48 mx-auto">
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('CDM')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
+            </div>
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('CDM')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
+            </div>
+        </div>
+        <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('LB')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">LB</span>
+            </div>
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('RB')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">RB</span>
+            </div>
+        </div>
+        <div class="relative  flex justify-center gap-48 mx-auto">
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('CB')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
+            </div>
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('CB')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
+            </div>
+        </div>
+        <div class="relative bottom-12 flex justify-center gap-48 mx-auto">
+            <div class="bg_badge h-36 flex items-center justify-center">
+                <button onclick="selectPlayer('GK')" class="w-full h-full text-2xl">➕</button>
+                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">GK</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div name="selectPlayer" id="selectPlayer" class="absolute left-[45%]  w-40 top-2/3">
+    </div>
+
+</body>
+<script src="assets/js/script.js"></script>
+</html>
+
+<!-- https://cdn.sofifa.net/flags/ar.png other link for other nationality and this is : ar.png in each value of each nationality -->
+<!-- <style>
+    .bg-badge {
+        background-image: url('src/assets/img/badge_gold.webp');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        width: 100%; 
+        aspect-ratio: 1; 
+    }
+</style>
+<div class="w-full h-[48rem] flex justify-center place-items-center ">
+    <div class="mx-auto w-1/3 bg-badge ">
+
+        <div class="h-[30%] w-64 mx-auto flex flex-col justify-end">
+            <div class="text-3xl text-black font-bold ">
+                <p>xx</p>
+                <button class="absolute top-2/5">
+                    xx
+                </button>
+            </div>
+            
+        </div>
+        <div class="h-1/3 bg-red-60 flex justify-center items-center">
+            <img src="https://cdn.sofifa.net/players/158/023/25_120.png" alt="" class="h-full w-2/5">
+        </div>
+        
+        <div class="h-1/3 text-center">
+            <div class="text-3xl text-black font-bold" id="Player-Name">Name</div>
+            <div class="text-lg h-14 text-black font-bol flex justify-center">
+                <div class="font-bold w-[9%]">
+                    <p>PAC</p>
+                    <p>xx</p>
+                </div>
+                <div class="font-bold w-[9%]">
+                    <p>SHO</p>
+                    <p>xx</p>
+                </div>
+                <div class="font-bold w-[9%]">
+                    <p>PS</p>
+                    <p>xx</p>
+                </div>
+                <div class="font-bold w-[9%]">
+                    <p>DRI</p>
+                    <p>xx</p>
+                </div>
+                <div class="font-bold w-[9%]">
+                    <p>DEF</p>
+                    <p>xx</p>
+                </div>
+                <div class="font-bold w-[9%]">
+                    <p>PHY</p>
+                    <p>xx</p>
+                </div>
+       
+            </div>
+            <div class="flex flex-col justify-center items-center  h-10 bg-red-95 ">
+                <div class="flex justify-center items-center gap-2">
+                    <img src="https://cdn.sofifa.net/flags/ar.png" alt=""  class="w-1/5">
+                    <img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="" class="w-1/5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="player-form" class="w-1/2 h-auto mt-12 mx-auto p-4 bg-white rounded-lg shadow-md border border-blue-500">
+        <div class="flex gap-8">
+
+            <div class="w-1/2">
+                <div>
+                    <label for="name">Name:</label>
+                    <input onchange="showPlayerName()" type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+
+                <div>
+                    <label for="nationality">Nationality:</label>
+                    <input onchange="showPlayerNationality()" type="text" id="nationality" name="nationality" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="position" class="block">Position:</label>
+                    <select id="position" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                        <option value="Null">Choose The Position</option>
+                        <option value="GK">Goalkeeper (GK)</option>
+                        <option value="RB">Right Back (RB)</option>
+                        <option value="LWB">Left Wing-Back (LWB)</option>
+                        <option value="CB">Center Back (CB)</option>
+                        <option value="RWB">Right Wing-Back (RWB)</option>
+                        <option value="LCB">Left Center Back (LCB)</option>
+                        <option value="RCB">Right Center Back (RCB)</option>
+                        <option value="CM">Central Midfielder (CM)</option>
+                        <option value="CDM">Defensive Midfielder (CDM)</option>
+                        <option value="CAM">Attacking Midfielder (CAM)</option>
+                        <option value="LM">Left Midfielder (LM)</option>
+                        <option value="RM">Right Midfielder (RM)</option>
+                        <option value="WM">Wide Midfielder (LM/RM)</option>
+                        <option value="LW">Left Wing (LW)</option>
+                        <option value="RW">Right Wing (RW)</option>
+                        <option value="BBM">Box-to-Box Midfielder (BBM)</option>
+                        <option value="ST">Striker (ST)</option>
+                        <option value="CF">Center Forward (CF)</option>
+                        <option value="SS">Second Striker (SS)</option>
+                        <option value="LWF">Left Wing Forward (LWF)</option>
+                        <option value="RWF">Right Wing Forward (RWF)</option>
+                        <option value="F9">False Nine (F9)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="rating">Rating:</label>
+                    <input type="number" id="rating" name="rating" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="pac">PAC (Pace):</label>
+                    <input type="number" id="pac" name="pac" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+
+            </div>
+            
+
+
+
+            <div class="w-1/2">
+
+                <div>
+                    <label for="sho">SHO (Shooting):</label>
+                <input type="number" id="sho" name="sho" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="pas">PAS (Passing):</label>
+                    <input type="number" id="pas" name="pas" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="dri">DRI (Dribbling):</label>
+                    <input type="number" id="dri" name="dri" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="def">DEF (Defense):</label>
+                    <input type="number" id="def" name="def" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div>
+                    <label for="phy">PHY (Physicality):</label>
+                    <input type="number" id="phy" name="phy" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            <label for="image-src">Player Image Src:</label>
+            <input type="text" id="image-src" name="image-src" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md">Add Player</button>
+        </div>
+    </form>
+    
+    
+</div>
+
+<script>
+    function showPlayerName(){
+        const playerName = document.getElementById("name").value;
+        const playerNameElement = document.getElementById("Player-Name");
+        playerNameElement.textContent = playerName;
+    }
+    function showPlayerNationality(){
+        const playerName = document.getElementById("nationality").value;
+        const playerNameElement = document.getElementById("Player-Nationality");
+        playerNameElement.textContent = playerName;
+    }
+</script> -->
