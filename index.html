@@ -7,14 +7,14 @@
 
     <title>Document</title>
     <style>
-            .std {
+    .std {
         background-image: url('assets/img/std.png');
         background-size: contain; 
         background-repeat: no-repeat; 
         background-position: center; 
         width: 100%; 
         aspect-ratio: 1; 
-    }
+        }
     .bg_badge{
         background-image: url('assets/img/badge_black.png');
         background-size: contain; 
@@ -23,78 +23,247 @@
         /* width: 100%;  */
         aspect-ratio: 1; 
     }
+    .bg-badge-gold {
+        background-image: url('assets/img/badge_gold.webp');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        width: 100%; 
+        aspect-ratio: 1; 
+    }
     </style>
 </head>
-<body>
-    <div class="flex flex-col items-center">
-        <h1 class="text-3xl font-medium">choisie le type formation</h1>
-        <select name="" id="" class="text-xl font-medium px-28 py-2 border border-gray-300 rounded-md">
-            <option value="">4-2-2-2</option>
-            <option value="">4-3-3</option>
-        </select>
-    </div>
-    <div class="std w-2/3 h-auto mx-auto">
-        <div class="relative top-48 flex justify-center gap-32 mx-auto">
-            <div class="bg_badge h-36 flex flex-col items-center justify-center ">
-                <button onclick="selectPlayer('ST')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
-            </div>
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('ST')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
-            </div>
+<body class="bg-[#141004] body-container">
+    <header class="bg-[#5f4e0c] text-yellow-400 flex justify-between">
+        <div>
+            <img src="assets/img/logo3.png" alt="">
         </div>
-        <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button  onclick="selectPlayer('CAM')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
-            </div>
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('CAM')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
-            </div>
+        <div class="w-1/2 flex flex-col justify-center">
+            <ul class="flex justify-around  w-full">
+                <li><a href="">Home</a></li>
+                <li><a href="">players</a></li>
+                <li><a href="">squads</a></li>
+            </ul>
         </div>
-        <div class="relative top-24 flex justify-center gap-48 mx-auto">
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('CDM')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
-            </div>
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('CDM')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
-            </div>
+    </header>
+    <section class="">
+        <div class="flex justify-center  gap-10  mt-10 w-full">
+            <h1 class="text-3xl font-medium text-[#6fb973]">choisie le type formation</h1>
+            <select name="" id="" class="text-xl font-medium px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md">
+                <option value="">4-2-2-2</option>
+                <option value="">4-3-3</option>
+            </select>
         </div>
-        <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('LB')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">LB</span>
-            </div>
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('RB')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">RB</span>
-            </div>
-        </div>
-        <div class="relative  flex justify-center gap-48 mx-auto">
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('CB')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
-            </div>
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('CB')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
-            </div>
-        </div>
-        <div class="relative bottom-12 flex justify-center gap-48 mx-auto">
-            <div class="bg_badge h-36 flex items-center justify-center">
-                <button onclick="selectPlayer('GK')" class="w-full h-full text-2xl">➕</button>
-                <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">GK</span>
-            </div>
-        </div>
+        <div class="flex justify-center gap-5 ">
+            <div class="w-2/3 -mt-32 flex flex-col justify-center">
+                <div class="std w-full h-auto  -mb-40 relative ">
+                    <div class="relative top-48 flex justify-center gap-32 mx-auto w-1/2 z-20">
+                        <div class="bg_badge h-36 flex flex-col items-center justify-center ">
+                            <button data-position="ST" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
 
-    </div>
+                        </div>
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="ST" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
+                        </div>
+                    </div>
+                    <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button  data-position="CAM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
+                        </div>
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="CAM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
+                        </div>
+                    </div>
+                    <div class="relative top-24 flex justify-center gap-48 mx-auto">
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="CDM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
+                        </div>
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="CDM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
+                        </div>
+                    </div>
+                    <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="LB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">LB</span>
+                        </div>
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="RB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">RB</span>
+                        </div>
+                    </div>
+                    <div class="relative  flex justify-center gap-48 mx-auto w-1/2 z-20">
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="CB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
+                        </div>
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="CB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
+                        </div>
+                    </div>
+                    <div class="relative bottom-12 flex justify-center gap-48 mx-auto">
+                        <div class="bg_badge h-36 flex items-center justify-center">
+                            <button data-position="GK" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">GK</span>
+                        </div>
+                    </div>
+                    <div name="selectPlayer" id="selectPlayer" class="relative -top-[28rem] left-[26rem]  w-[11rem]  hidden">
 
-    <div name="selectPlayer" id="selectPlayer" class="absolute left-[45%]  w-40 top-2/3">
-    </div>
+                    </div>
+                    <div class="flex  mt-10 w-full justify-center">
+                        <button class="text-xl font-medium px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md">Add Squad</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mr-10 w-1/3 mt-8">
+                <div class="w-full flex justify-end gap-4">
+                    <button onclick="allPlayers()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Show All Players</button>
+                    <button onclick="addNewPlayer()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Add New Player</button>
+
+                </div>
+                <div id="playerList" class="flex w-full h-[53rem]">
+ 
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="addPlayerSection" class="hidden">
+        <div id="addPlayer" class="absolute inset-0 flex items-center justify-center z-50  w-full bg-[#141004]   bg-opacity-80">
+
+            <form id="player-form" class="w-1/2 h-auto mt-12 mx-auto p-4 bg-white rounded-lg shadow-md border border-blue-500">
+                <div class="flex justify-end">
+                    <button oncanplay="hiddePlayerSection()" class="bg-[#5f4e0c]  ">✖</button>
+                </div>
+                <div class="flex gap-8">
+        
+                    <div class="w-1/2">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input onchange="showPlayerName()" type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+        
+                        <div>
+                            <label for="nationality">Nationality:</label>
+                            <input onchange="showPlayerNationality()" type="text" id="nationality" name="nationality" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="position" class="block">Position:</label>
+                            <select onchange="playerPosition()" id="form-select-position" name="position" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                                <option value="Null">Choose The Position</option>
+                                <option value="GK">Goalkeeper (GK)</option>
+                                <option value="RB">Right Back (RB)</option>
+                                <option value="LWB">Left Wing-Back (LWB)</option>
+                                <option value="CB">Center Back (CB)</option>
+                                <option value="RWB">Right Wing-Back (RWB)</option>
+                                <option value="LCB">Left Center Back (LCB)</option>
+                                <option value="RCB">Right Center Back (RCB)</option>
+                                <option value="CM">Central Midfielder (CM)</option>
+                                <option value="CDM">Defensive Midfielder (CDM)</option>
+                                <option value="CAM">Attacking Midfielder (CAM)</option>
+                                <option value="LM">Left Midfielder (LM)</option>
+                                <option value="RM">Right Midfielder (RM)</option>
+                                <option value="WM">Wide Midfielder (LM/RM)</option>
+                                <option value="LW">Left Wing (LW)</option>
+                                <option value="RW">Right Wing (RW)</option>
+                                <option value="BBM">Box-to-Box Midfielder (BBM)</option>
+                                <option value="ST">Striker (ST)</option>
+                                <option value="CF">Center Forward (CF)</option>
+                                <option value="SS">Second Striker (SS)</option>
+                                <option value="LWF">Left Wing Forward (LWF)</option>
+                                <option value="RWF">Right Wing Forward (RWF)</option>
+                                <option value="F9">False Nine (F9)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="rating">Rating:</label>
+                            <input type="number" id="rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div class="playerProperties">
+                            <label for="pac">PAC (Pace):</label>
+                            <input type="number" id="pac" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+
+                        <div class="goalKeeperProperties hidden">
+                            <label for="diving">Diving:</label>
+                            <input type="number" id="diving" name="diving" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+
+                    </div>
+                    
+        
+        
+        
+                    <div class="w-1/2 playerProperties">
+                        <div>
+                            <label for="sho">SHO (Shooting):</label>
+                            <input type="number" id="sho" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="pas">PAS (Passing):</label>
+                            <input type="number" id="pas" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="dri">DRI (Dribbling):</label>
+                            <input type="number" id="dri" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="def">DEF (Defense):</label>
+                            <input type="number" id="def" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="phy">PHY (Physicality):</label>
+                            <input type="number" id="phy" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+        
+                    </div>
+                    <div class="w-1/2 goalKeeperProperties hidden">
+                        <div>
+                            <label for="handling">Handling:</label>
+                            <input type="number" id="handling" name="handling" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="kicking">Kicking:</label>
+                            <input type="number" id="kicking" name="kicking" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="reflexes">Reflexes:</label>
+                            <input type="number" id="reflexes" name="reflexes" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="speed">Speed:</label>
+                            <input type="number" id="speed" name="speed" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="positioning">Positioning:</label>
+                            <input type="number" id="positioning" name="positioning" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+            
+        
+                    </div>
+        
+                </div>
+                <div>
+                    <label for="image-src">Player Image Src:</label>
+                    <input type="text" id="image-src" name="image-src" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="w-full px-4 py-2 border-black bg-[#5f4e0c] border-2 text-yellow-400 hover:border-yellow-400 rounded-md">Add Player</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
 
 </body>
 <script src="assets/js/script.js"></script>
@@ -171,16 +340,16 @@
             <div class="w-1/2">
                 <div>
                     <label for="name">Name:</label>
-                    <input onchange="showPlayerName()" type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="showPlayerName()" type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
 
                 <div>
                     <label for="nationality">Nationality:</label>
-                    <input onchange="showPlayerNationality()" type="text" id="nationality" name="nationality" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="showPlayerNationality()" type="text" id="nationality" name="nationality" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="position" class="block">Position:</label>
-                    <select id="position" name="position" required class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                    <select id="position" name="position" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                         <option value="Null">Choose The Position</option>
                         <option value="GK">Goalkeeper (GK)</option>
                         <option value="RB">Right Back (RB)</option>
@@ -208,11 +377,11 @@
                 </div>
                 <div>
                     <label for="rating">Rating:</label>
-                    <input type="number" id="rating" name="rating" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="pac">PAC (Pace):</label>
-                    <input type="number" id="pac" name="pac" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="pac" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
 
             </div>
@@ -224,23 +393,23 @@
 
                 <div>
                     <label for="sho">SHO (Shooting):</label>
-                <input type="number" id="sho" name="sho" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                <input type="number" id="sho" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="pas">PAS (Passing):</label>
-                    <input type="number" id="pas" name="pas" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="pas" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="dri">DRI (Dribbling):</label>
-                    <input type="number" id="dri" name="dri" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="dri" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="def">DEF (Defense):</label>
-                    <input type="number" id="def" name="def" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="def" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="phy">PHY (Physicality):</label>
-                    <input type="number" id="phy" name="phy" min="1" max="99" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input type="number" id="phy" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
 
             </div>
@@ -248,7 +417,7 @@
         </div>
         <div>
             <label for="image-src">Player Image Src:</label>
-            <input type="text" id="image-src" name="image-src" required class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+            <input type="text" id="image-src" name="image-src" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
         </div>
         <div class="mt-4">
             <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md">Add Player</button>
@@ -270,3 +439,7 @@
         playerNameElement.textContent = playerName;
     }
 </script> -->
+
+
+
+
