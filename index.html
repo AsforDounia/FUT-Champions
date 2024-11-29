@@ -59,58 +59,58 @@
                 <div class="std w-full h-auto  -mb-40 relative ">
                     <div class="relative top-48 flex justify-center gap-32 mx-auto w-1/2 z-20">
                         <div class="bg_badge h-36 flex flex-col items-center justify-center ">
-                            <button data-position="ST" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="left-st" data-position="ST" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
 
                         </div>
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="ST" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="right-st" data-position="ST" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">ST</span>
                         </div>
                     </div>
                     <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button  data-position="CAM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="left-cam" data-position="CAM" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
                         </div>
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="CAM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="right-cam" data-position="CAM" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CAM</span>
                         </div>
                     </div>
                     <div class="relative top-24 flex justify-center gap-48 mx-auto">
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="CDM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="left-cdm" data-position="CDM" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
                         </div>
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="CDM" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="right-cdm" data-position="CDM" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CDM</span>
                         </div>
                     </div>
                     <div class="relative top-24 flex justify-center gap-[28rem] mx-auto">
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="LB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="left-lb" data-position="LB" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">LB</span>
                         </div>
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="RB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="right-rb" data-position="RB" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">RB</span>
                         </div>
                     </div>
                     <div class="relative  flex justify-center gap-48 mx-auto w-1/2 z-20">
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="CB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="left-cb" data-position="CB" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
                         </div>
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="CB" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="right-cb" data-position="CB" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">CB</span>
                         </div>
                     </div>
                     <div class="relative bottom-12 flex justify-center gap-48 mx-auto">
                         <div class="bg_badge h-36 flex items-center justify-center">
-                            <button data-position="GK" onclick="selectPlayer(event)" class="position w-full h-full text-2xl">➕</button>
+                            <button id="goalkeeper" data-position="GK" onclick="selectPlayer(this)" class="position w-full h-full text-2xl">➕</button>
                             <span class="text-white absolute top-36 border border-gray-900 rounded-full bg-slate-800 w-16 text-center">GK</span>
                         </div>
                     </div>
@@ -126,10 +126,10 @@
             <div class="mr-10 w-1/3 mt-8">
                 <div class="w-full flex justify-end gap-4">
                     <button onclick="allPlayers()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Show All Players</button>
-                    <button onclick="addNewPlayer()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Add New Player</button>
+                    <button onclick="formNewPlayer()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Add New Player</button>
 
                 </div>
-                <div id="playerList" class="flex w-full h-[53rem]">
+                <div id="playerList" class="">
  
                 </div>
             </div>
@@ -140,25 +140,25 @@
     <section id="addPlayerSection" class="hidden">
         <div id="addPlayer" class="absolute inset-0 flex items-center justify-center z-50  w-full bg-[#141004]   bg-opacity-80">
 
-            <form id="player-form" class="w-1/2 h-auto mt-12 mx-auto p-4 bg-white rounded-lg shadow-md border border-blue-500">
+            <form onsubmit="formValidation(event)" id="player-form" class="w-1/2 h-auto mt-12 mx-auto p-4 bg-white rounded-lg shadow-md border border-blue-500">
                 <div class="flex justify-end">
-                    <button oncanplay="hiddePlayerSection()" class="bg-[#5f4e0c]  ">✖</button>
+                    <button onclick="hiddePlayerSection()" class="bg-[#5f4e0c]  ">✖</button>
                 </div>
                 <div class="flex gap-8">
         
                     <div class="w-1/2">
                         <div>
                             <label for="name">Name:</label>
-                            <input onchange="showPlayerName()" type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="textValidation('Name')" type="text" id="Name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
         
                         <div>
                             <label for="nationality">Nationality:</label>
-                            <input onchange="showPlayerNationality()" type="text" id="nationality" name="nationality" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="textValidation('Nationality')" type="text" id="Nationality" name="nationality" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="position" class="block">Position:</label>
-                            <select onchange="playerPosition()" id="form-select-position" name="position" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                            <select onchange="playerPosition('form-select-position')" id="form-select-position" name="position" class="w-full px-3 py-2 border border-gray-300 rounded-md">
                                 <option value="Null">Choose The Position</option>
                                 <option value="GK">Goalkeeper (GK)</option>
                                 <option value="RB">Right Back (RB)</option>
@@ -186,16 +186,18 @@
                         </div>
                         <div>
                             <label for="rating">Rating:</label>
-                            <input type="number" id="rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
-                        </div>
-                        <div class="playerProperties">
-                            <label for="pac">PAC (Pace):</label>
-                            <input type="number" id="pac" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Rating')" type="number" id="Rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
 
-                        <div class="goalKeeperProperties hidden">
-                            <label for="diving">Diving:</label>
-                            <input type="number" id="diving" name="diving" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+
+
+                        <div>
+                            <label for="Flag">Player Flag Src:</label>
+                            <input onchange="imgValidation('Flag')"  type="text" id="Flag" name="Flag" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div>
+                            <label for="Logo">Player Logo Src:</label>
+                            <input onchange="imgValidation('Logo')" type="text" id="Logo" name="Logo" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
 
                     </div>
@@ -204,63 +206,81 @@
         
         
                     <div class="w-1/2 playerProperties">
+                        <div class="">
+                            <label for="pac">PAC (Pace):</label>
+                            <input onchange="numberValidation('Pace')" type="number" id="Pace" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
                         <div>
                             <label for="sho">SHO (Shooting):</label>
-                            <input type="number" id="sho" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Shooting')" type="number" id="Shooting" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="pas">PAS (Passing):</label>
-                            <input type="number" id="pas" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Passing')" type="number" id="Passing" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="dri">DRI (Dribbling):</label>
-                            <input type="number" id="dri" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Dribbling')" type="number" id="Dribbling" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="def">DEF (Defense):</label>
-                            <input type="number" id="def" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Defense')" type="number" id="Defense" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="phy">PHY (Physicality):</label>
-                            <input type="number" id="phy" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Physicality')" type="number" id="Physicality" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
-        
+                        
                     </div>
-                    <div class="w-1/2 goalKeeperProperties hidden">
+                    <div id="goalKeeperProperties" class="w-1/2 goalKeeperProperties hidden">
+                        <div class="">
+                            <label for="diving">Diving:</label>
+                            <input onchange="numberValidation('Diving')" type="number" id="Diving" name="diving" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
                         <div>
                             <label for="handling">Handling:</label>
-                            <input type="number" id="handling" name="handling" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Handling')" type="number" id="Handling" name="handling" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="kicking">Kicking:</label>
-                            <input type="number" id="kicking" name="kicking" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Kicking')" type="number" id="Kicking" name="kicking" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="reflexes">Reflexes:</label>
-                            <input type="number" id="reflexes" name="reflexes" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Reflexes')" type="number" id="Reflexes" name="reflexes" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="speed">Speed:</label>
-                            <input type="number" id="speed" name="speed" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Speed')" type="number" id="Speed" name="speed" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
                         <div>
                             <label for="positioning">Positioning:</label>
-                            <input type="number" id="positioning" name="positioning" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                            <input onchange="numberValidation('Positioning')" type="Positioning" id="positioning" name="positioning" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                         </div>
-            
         
                     </div>
-        
+                    
                 </div>
-                <div>
-                    <label for="image-src">Player Image Src:</label>
-                    <input type="text" id="image-src" name="image-src" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                <div class="flex gap-8">
+
+                    <div class="w-1/2">
+                        <label for="Player-Image">Player Image Src:</label>
+                        <input onchange="imgValidation('Player-Image')" type="text" id="Player-Image" name="Player-Image" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    </div>
+                    <div class="w-1/2">
+                        <label for="Club-Name">Player Club Name:</label>
+                        <input onchange="textValidation('Name')" type="text" id="Club-Name" name="Club-Name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    </div>
                 </div>
                 <div class="mt-4">
-                    <button type="submit" class="w-full px-4 py-2 border-black bg-[#5f4e0c] border-2 text-yellow-400 hover:border-yellow-400 rounded-md">Add Player</button>
+                    <button type="submit"  class="w-full px-4 py-2 border-black bg-[#5f4e0c] border-2 text-yellow-400 hover:border-yellow-400 rounded-md">Add Player</button>
                 </div>
             </form>
+            <div id="error-message" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border-2 border-[#5f4e0c] text-red-500 rounded shadow-lg hidden">
+            </div>
+
         </div>
+
     </section>
 
 
@@ -377,11 +397,11 @@
                 </div>
                 <div>
                     <label for="rating">Rating:</label>
-                    <input type="number" id="rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="rating" name="rating" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="pac">PAC (Pace):</label>
-                    <input type="number" id="pac" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="pac" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
 
             </div>
@@ -393,31 +413,31 @@
 
                 <div>
                     <label for="sho">SHO (Shooting):</label>
-                <input type="number" id="sho" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                <input onchange="numberValidation('Rating')" type="number" id="sho" name="sho" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="pas">PAS (Passing):</label>
-                    <input type="number" id="pas" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="pas" name="pas" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="dri">DRI (Dribbling):</label>
-                    <input type="number" id="dri" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="dri" name="dri" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="def">DEF (Defense):</label>
-                    <input type="number" id="def" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="def" name="def" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
                 <div>
                     <label for="phy">PHY (Physicality):</label>
-                    <input type="number" id="phy" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                    <input onchange="numberValidation('Rating')" type="number" id="phy" name="phy" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                 </div>
 
             </div>
 
         </div>
         <div>
-            <label for="image-src">Player Image Src:</label>
-            <input type="text" id="image-src" name="image-src" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+            <label for="image">Player Image Src:</label>
+            <input type="text" id="image" name="image" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
         </div>
         <div class="mt-4">
             <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md">Add Player</button>
