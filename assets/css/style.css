@@ -1,0 +1,56 @@
+.cart {
+    position: absolute;
+    width: 10%;
+    transform: translate(-50%, -100%);
+    }
+    .std {
+    background-image: url('../img/std.png');
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width: 100%; 
+    aspect-ratio: 1; 
+    }
+
+    .bg-badge-gold {
+        background-image: url('../img/badge_gold.webp');
+        background-image: url('../img/badge_gold.webp');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        width: 18%; 
+        aspect-ratio: 1; 
+    }
+
+    .card-container {
+        position: relative;
+        width: 100%; /* Full width for responsiveness */
+        transform: scale(1); /* Default scale */
+        transform-origin: top center;
+    }
+
+    /* Ensures card maintains proportions when zooming */
+    @media (min-width: 640px) {
+        .card-container {
+            max-width: 555px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .card-container {
+            max-width: 605px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .card-container {
+            max-width: 955px;
+        }
+    }
+    .slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 6px;
+        height: 1rem;
+        border-radius: 20%;
+        background: goldenrod;
+    }
