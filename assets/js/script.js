@@ -146,6 +146,9 @@ const formations = [
 
 function homePage(){
     fetchPlayers();
+    if (window.location.pathname.endsWith("squadPage.html")) {
+        squadPage();
+    }
     if (window.location.pathname.endsWith("players.html")) {
         playersPage();
     }
@@ -592,44 +595,43 @@ function selectPlayer(element) {
 
     const players = JSON.parse(localStorage.getItem("playersObject"));
 
-    // const curentSquadList = JSON.parse(localStorage.getItem("CurentsquadList"));
+    const curentSquadList = JSON.parse(localStorage.getItem("CurentsquadList"));
 
-    const options = players.filter(player => player.position.includes(position));
-    // if (curentSquadList && options ) {
-    //     options.forEach(optionPlayer => {
-    //         const playerExistsInSquad = curentSquadList.find(squadPlayer => squadPlayer.name === optionPlayer.name);
-    //         if (playerExistsInSquad) {
-    //             const playerIndex = options.indexOf(playerExistsInSquad);
-    //             options.splice(playerIndex, 1);
-    //         } else {
-    //             console.log(`${optionPlayer.name} n'existe pas dans CurentsquadList.`);
-    //         }
-    //     });
-    // }
+    let options = players.filter(player => player.position.includes(position));
+    if (curentSquadList && options) {
+        options = options.filter(optionPlayer => {
+            const playerExistsInSquad = curentSquadList.some(squadPlayer => squadPlayer.name === optionPlayer.name);
+            if (playerExistsInSquad) {
+                console.log(`${optionPlayer.name} existe déjà dans CurentsquadList.`);
+                return false;
+            } else {
+                console.log(`${optionPlayer.name} n'existe pas dans CurentsquadList.`);
+                return true;
+            }
+        });
+    }
     
     const divParent = document.getElementById("playerList");
-    divParent.className = "w-full h-auto";
+    divParent.className = "flex w-full h-[65rem] overflow-auto";
 
-    
-    
     divParent.innerHTML = ``;
-    const selectElement = document.createElement("div");
-    selectElement.className = "flex w-full";
-    divParent.appendChild(selectElement);
+    // const selectElement = document.createElement("div");
+    // selectElement.className = "flex w-full";
+    // divParent.appendChild(selectElement);
 
     const playerDiv1 = document.createElement("div");
     playerDiv1.className = "w-full h-full mx-2";
     const playerDiv2 = document.createElement("div");
     playerDiv2.className = "w-full h-full";
 
-    selectElement.appendChild(playerDiv1);
-    selectElement.appendChild(playerDiv2);
+    divParent.appendChild(playerDiv1);
+    divParent.appendChild(playerDiv2);
     const middleIndex = Math.ceil(options.length / 2);  
     const firstHalf = options.slice(0, middleIndex); 
     const secondHalf = options.slice(middleIndex);
     firstHalf.forEach(player => {
         const playerDiv = document.createElement("div");
-        playerDiv.setAttribute("onclick", `AddPlayerToSquad('${player.name}')`);
+        playerDiv.setAttribute("onclick", `generatePlayerCard('${player.name}')`);
 
 
         playerDiv.className = "flex items-center w-full border border-black bg-slate-800 p-2 cursor-pointer my-2 hover:border-yellow-500";
@@ -643,7 +645,7 @@ function selectPlayer(element) {
     });
     secondHalf.forEach(player => {
         const playerDiv = document.createElement("div");
-        playerDiv.setAttribute("onclick", `AddPlayerToSquad('${player.name}')`);
+        playerDiv.setAttribute("onclick", `generatePlayerCard('${player.name}')`);
         playerDiv.className = "flex items-center w-full border border-black bg-slate-800 p-2 cursor-pointer my-2 hover:border-yellow-500";
 
         playerDiv.innerHTML = `
@@ -699,6 +701,64 @@ let squadList = [];
 // }
 
 
+function generatePlayerCard(playerName) {
+    const player = players.find(player => player.name === playerName);
+    const CurentsquadList = JSON.parse(localStorage.getItem("CurentsquadList")) || [];
+    const squadPlayer = CurentsquadList.find(player => player.name === playerName);
+    if (squadPlayer) {
+        alert("Player already in the squad");
+        return;
+    }
+    CurentsquadList.push(player);
+    localStorage.setItem("CurentsquadList", JSON.stringify(CurentsquadList));
+    const statisticsHTML = player.position.includes('GK') 
+        ? `
+            <div class="player_statistics w-full flex flex-row justify-between text-[0.3rem] >
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DIV</p><p class="font-extrabold">${player.diving}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">HAN</p><p class="font-extrabold">${player.handling}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">KIC</p><p class="font-extrabold">${player.kicking}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">REF</p><p class="font-extrabold">${player.reflexes}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SPD</p><p class="font-extrabold">${player.speed}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">POS</p><p class="font-extrabold">${player.positioning}</p></div>
+            </div>
+        `
+        : `
+            <div class="player_statistics w-full  flex flex-row justify-between text-[0.3rem] ">
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAC</p><p class="font-extrabold">${player.pace}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SHO</p><p class="font-extrabold">${player.shooting}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAS</p><p class="font-extrabold">${player.passing}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DRI</p><p class="font-extrabold">${player.dribbling}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DEF</p><p class="font-extrabold">${player.defending}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PHY</p><p class="font-extrabold">${player.physical}</p></div>
+            </div>
+        `;
+
+    const newContainer = document.createElement('div');
+    newContainer.innerHTML = `
+        <div class="w-4/5">
+            <div class="player_positoin flex flex-col absolute top-[25%] left-[25%] -space-y-1">
+                <p class="text-[0.7rem] lg:text-xs md:text-[0.6rem] font-bold">${player.rating}</p>
+                <p class="text-[0.5rem] lg:text-xs md:text-[0.6rem]">${player.position[0]}</p>
+            </div>
+            <div class="player_image flex justify-center lg:w-2/5 lg:top-[23%] md:w-1/3 absolute md:top-[30%] left-1/2 transform -translate-x-1/2">
+                <img src="${player.photo}" alt="${player.name}">
+            </div>
+            <div class="w-[57%] left-[21%]  flex flex-col items-center absolute lg:top-[65%] md:top-[63%] lg:gap-1 md:gap-0 ">
+                <p class="text-[0.5rem] lg:text-[0.5rem] md:text-[0.4rem] font-bold">${player.name}</p>
+                ${statisticsHTML}
+                <div class="palyer_statistics w-[10%] h-full flex flex-row justify-center gap-2">
+                    <img src="${player.flag}" h-[8%]  alt="${player.nationality}">
+                    <img src="${player.League}" alt="${player.League}">
+                    <img src="${player.logo}" alt="${player.club}">
+                </div>
+            </div>
+        </div>
+    `;
+
+    containerPlayer.replaceWith(newContainer);
+    // console.log(`${player.photo} , ${player.flag} , ${player.logo}`)
+}
+
 
 
 function AddPlayerToSquad(playerName) {
@@ -730,15 +790,11 @@ function addNewSquad(){
     const CurentsquadList = JSON.parse(localStorage.getItem("CurentsquadList")) || [];
     console.log(CurentsquadList.length);
     if( CurentsquadList.length === 11 ){
-        squadList.push();
+        squadList.push(CurentsquadList);
         localStorage.setItem("SquadList", JSON.stringify(squadList));
-
-
     }
     else{
-
-
-    const errorMessage = document.getElementById('error-message');
+    
         alert("You must have 11 players in your squad");
     }
 
@@ -799,7 +855,6 @@ function hoverDiv(playerName){
 function allPlayers(){
     
     const players = JSON.parse(localStorage.getItem("playersObject")) || [];
-    
     const playerList = document.getElementById("playerList");
     console.log("playerList : ", playerList);
     playerList.className = "flex w-full h-[66%] overflow-auto";
@@ -808,11 +863,9 @@ function allPlayers(){
     playerDiv1.className = "w-full h-full mx-2";
     const playerDiv2 = document.createElement("div");
     playerDiv2.className = "w-full h-full";
-
-
+    
     playerList.appendChild(playerDiv1);
     playerList.appendChild(playerDiv2);
-
 
     const middleIndex = Math.ceil(players.length / 2);
     const firstHalf = players.slice(0, middleIndex); 
@@ -848,7 +901,6 @@ function hideDetailsPlayer(){
     playerSectionDetails.classList.remove("flex");
     playerSectionDetails.classList.add("hidden");
 }
-
 
 
 function playerDetails(playerName){
@@ -1471,7 +1523,53 @@ function playersPage(){
 
 
 
+function squadPage(){
 
+    const squadslist = JSON.parse(localStorage.getItem("SquadList")) || [];
+    console.log(squadslist);
+
+    const squadPage = document.getElementById("squadPage");
+    squadPage.className = "w-full h-full flex flex-col flex-wrap";
+    squadPage.innerHTML = "";
+
+    
+    for(let i = 0; i < squadslist.length; i++){
+        let squad = squadslist[i];
+        console.log(squad.length);
+        const squadContainerElem = document.createElement("div");
+        squadContainerElem.className = "w-full h-full flex flex-col flex-wrap items-center justify-center p-8";
+        const squadContainer = document.createElement("div");
+        
+        const squadHead = document.createElement("div");
+        squadHead.className = "flex text-2xl font-bold text-center  text-yellow-400 ";
+        squadHead.innerHTML = `
+        <h1 class="bg-[#5f4e0c] rounded-md mx-5 w-2/3 ">Squad ${i+1}</h1>
+        <button class="bg-[#5f4e0c] rounded-md mx-5">Modify</button>
+        <button class="bg-[#5f4e0c] rounded-md mx-5">Delete</button>
+
+        
+        `;
+        squadContainer.appendChild(squadHead);
+        squadContainer.className = "w-auto p-8 h-full flex flex items-center justify-center border border-[#dfbe6b] rounded-lg grid grid-rows-2 grid-flow-col gap-4 ";
+        for(let j = 0; j < 11; j++){
+            const player = squad[j];
+            const playerContainer = document.createElement("div");
+            playerContainer.className = "w-full h-full flex flex-col items-center justify-center ";
+
+            playerContainer.innerHTML = `
+                <div onclick="playerDetails('${player.name}')" class="" >
+                    <img src="${player.photo}" alt="Player Image" class="w-[8em] h-auto">
+                    <p class="text-center text-white w-full h-full">${player.name}</p>
+                </div>
+                `;
+                squadContainer.appendChild(playerContainer);
+            }
+            squadContainerElem.appendChild(squadHead);
+            squadContainerElem.appendChild(squadContainer);
+        squadPage.appendChild(squadContainerElem);
+    }
+
+}
 
 
 
