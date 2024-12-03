@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive FIFA Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Card Background */
+        .bg-badge-gold {
+            background-image: url('assets/img/badge_gold.webp'); /* Path to your card background */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            aspect-ratio: 2 / 3;
+        }
+
+        /* Scaling the content */
+        .card-container {
+            position: relative;
+            width: 100%; /* Full width for responsiveness */
+            max-width: 300px; /* Ensures the card has a maximum size */
+            transform: scale(1); /* Default scale */
+            transform-origin: top center;
+        }
+
+        /* Ensures card maintains proportions when zooming */
+        @media (min-width: 640px) {
+            .card-container {
+                max-width: 350px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card-container {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-container {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="flex items-center justify-center min-h-screen bg-slate-900">
+    <div class="card-container">
+        <div class="relative bg-badge-gold">
+            <div class="absolute top-32 left-12 text-center">
+                <h1 class="text-lg sm:text-2xl md:text-3xl font-bold">90</h1>
+                <h2 class="text-sm sm:text-lg md:text-xl font-medium">CF</h2>
+            </div>
+
+            <div class="absolute top-[23%] left-1/2 transform -translate-x-1/2 w-48 h-48 sm:w-52 sm:h-52 md:w-56 md:h-56 ">
+                <img src="https://cdn.sofifa.net/players/020/801/25_120.png" alt="Player Image" class="object-cover w-full h-full">
+            </div>
+
+            <div class="absolute bottom-40 md:bottom-44 left-1/2 transform -translate-x-1/2 text-center">
+                <h1 class="text-lg sm:text-3xl md:text-5xl font-bold">Messi</h1>
+            </div>
+
+            <div class="absolute top-[70%] left-1/2 transform -translate-x-1/2 grid grid-cols-6 w-11/12 sm:w-10/12 md:w-8/12 text-center text-sm sm:text-base md:text-lg font-bold">
+                <div>
+                    <p>PAC</p>
+                    <p>80</p>
+                </div>
+                <div>
+                    <p>SHO</p>
+                    <p>87</p>
+                </div>
+                <div>
+                    <p>PAS</p>
+                    <p>90</p>
+                </div>
+                <div>
+                    <p>DRI</p>
+                    <p>94</p>
+                </div>
+                <div>
+                    <p>DEF</p>
+                    <p>33</p>
+                </div>
+                <div>
+                    <p>PHY</p>
+                    <p>64</p>
+                </div>
+            </div>
+
+
+            <div class="absolute top-[80%] left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-4">
+                <img src="https://cdn.sofifa.net/flags/ar.png" alt="Argentina Flag" class="w-6 sm:w-8 md:w-10">
+                <img src="https://cdn.sofifa.net/flags/ar.png" alt="Argentina Flag" class="w-6 sm:w-8 md:w-10">
+                <img src="https://cdn.sofifa.net/meta/team/239235/120.png" alt="Club Logo" class="w-6 sm:w-8 md:w-10">
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
