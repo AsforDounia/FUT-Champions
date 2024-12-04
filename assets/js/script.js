@@ -631,7 +631,7 @@ function selectPlayer(element) {
     const secondHalf = options.slice(middleIndex);
     firstHalf.forEach(player => {
         const playerDiv = document.createElement("div");
-        playerDiv.setAttribute("onclick", `generatePlayerCard('${player.name}')`);
+        playerDiv.setAttribute("onclick", `AddPlayerToSquad('${player.name}')`);
 
 
         playerDiv.className = "flex items-center w-full border border-black bg-slate-800 p-2 cursor-pointer my-2 hover:border-yellow-500";
@@ -645,7 +645,7 @@ function selectPlayer(element) {
     });
     secondHalf.forEach(player => {
         const playerDiv = document.createElement("div");
-        playerDiv.setAttribute("onclick", `generatePlayerCard('${player.name}')`);
+        playerDiv.setAttribute("onclick", `AddPlayerToSquad('${player.name}')`);
         playerDiv.className = "flex items-center w-full border border-black bg-slate-800 p-2 cursor-pointer my-2 hover:border-yellow-500";
 
         playerDiv.innerHTML = `
@@ -667,97 +667,11 @@ function hideSelect() {
 
     }
 }
-let squadList = []; 
+// let squadList = []; 
 
 
-// function AddPlayerToAdditional(playerName){
-//     const players = JSON.parse(localStorage.getItem("playersObject"));
-
-//     const playerfound = players.find(player => player.name === playerName);
-//     const CurentsquadList = JSON.parse(localStorage.getItem("CurentsquadList")) || [];
-//     // const additionalSquadList = JSON.parse(localStorage.getItem("additionalSquadList")) || [];
-
-//     if(CurentsquadList){
-//         const squadPlayer = CurentsquadList.find(player => player.name === playerfound.name);
-//         if (!squadPlayer) {
-//             // CurentsquadList.additionalSquadList.find(player => player.name === playerfound.name);
-//             // if()
-//             CurentsquadList.push(playerfound);
-//             localStorage.setItem("CurentsquadList", JSON.stringify(CurentsquadList));
-
-//             containerPlayer.innerHTML = "";
-    
-//             containerPlayer.innerHTML = `
-//             <div onclick="hoverDiv('${playerfound.name}')" class="divPlayerChange flex flex-col items-center justify-center w-full h-full text-white" >
-//                 <img  src="${playerfound.photo}" class="w-[5rem] playerImage">
-//                 <p class="playerName text-sm text-white w-3/5">${playerfound.name}</p>
-//             </div>
-//             `;
-//         }
-//         else{
-//             alert("Player already in the squad");
-//         }
-//     }
-// }
 
 
-function generatePlayerCard(playerName) {
-    const player = players.find(player => player.name === playerName);
-    const CurentsquadList = JSON.parse(localStorage.getItem("CurentsquadList")) || [];
-    const squadPlayer = CurentsquadList.find(player => player.name === playerName);
-    if (squadPlayer) {
-        alert("Player already in the squad");
-        return;
-    }
-    CurentsquadList.push(player);
-    localStorage.setItem("CurentsquadList", JSON.stringify(CurentsquadList));
-    const statisticsHTML = player.position.includes('GK') 
-        ? `
-            <div class="player_statistics w-full flex flex-row justify-between text-[0.3rem] >
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DIV</p><p class="font-extrabold">${player.diving}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">HAN</p><p class="font-extrabold">${player.handling}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">KIC</p><p class="font-extrabold">${player.kicking}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">REF</p><p class="font-extrabold">${player.reflexes}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SPD</p><p class="font-extrabold">${player.speed}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">POS</p><p class="font-extrabold">${player.positioning}</p></div>
-            </div>
-        `
-        : `
-            <div class="player_statistics w-full  flex flex-row justify-between text-[0.3rem] ">
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAC</p><p class="font-extrabold">${player.pace}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SHO</p><p class="font-extrabold">${player.shooting}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAS</p><p class="font-extrabold">${player.passing}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DRI</p><p class="font-extrabold">${player.dribbling}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DEF</p><p class="font-extrabold">${player.defending}</p></div>
-                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PHY</p><p class="font-extrabold">${player.physical}</p></div>
-            </div>
-        `;
-
-    const newContainer = document.createElement('div');
-    newContainer.innerHTML = `
-        <div class="w-4/5">
-            <div class="player_positoin flex flex-col absolute top-[25%] left-[25%] -space-y-1">
-                <p class="text-[0.7rem] lg:text-xs md:text-[0.6rem] font-bold">${player.rating}</p>
-                <p class="text-[0.5rem] lg:text-xs md:text-[0.6rem]">${player.position[0]}</p>
-            </div>
-            <div class="player_image flex justify-center lg:w-2/5 lg:top-[23%] md:w-1/3 absolute md:top-[30%] left-1/2 transform -translate-x-1/2">
-                <img src="${player.photo}" alt="${player.name}">
-            </div>
-            <div class="w-[57%] left-[21%]  flex flex-col items-center absolute lg:top-[65%] md:top-[63%] lg:gap-1 md:gap-0 ">
-                <p class="text-[0.5rem] lg:text-[0.5rem] md:text-[0.4rem] font-bold">${player.name}</p>
-                ${statisticsHTML}
-                <div class="palyer_statistics w-[10%] h-full flex flex-row justify-center gap-2">
-                    <img src="${player.flag}" h-[8%]  alt="${player.nationality}">
-                    <img src="${player.League}" alt="${player.League}">
-                    <img src="${player.logo}" alt="${player.club}">
-                </div>
-            </div>
-        </div>
-    `;
-
-    containerPlayer.replaceWith(newContainer);
-    // console.log(`${player.photo} , ${player.flag} , ${player.logo}`)
-}
 
 
 
@@ -776,11 +690,41 @@ function AddPlayerToSquad(playerName) {
 
     CurentsquadList.push(playerfound);
     localStorage.setItem("CurentsquadList", JSON.stringify(CurentsquadList));
-
+    const statisticsHTML = playerfound.position.includes('GK') 
+        ? `
+            <div class="player_statistics w-full flex flex-row justify-center text-[0.5rem] gap-[0.15rem]">
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DIV</p><p class="font-extrabold">${playerfound.diving}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">HAN</p><p class="font-extrabold">${playerfound.handling}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">KIC</p><p class="font-extrabold">${playerfound.kicking}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">REF</p><p class="font-extrabold">${playerfound.reflexes}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SPD</p><p class="font-extrabold">${playerfound.speed}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">POS</p><p class="font-extrabold">${playerfound.positioning}</p></div>
+            </div>
+        `
+        : `
+            <div class="playerfound_statistics w-full  flex flex-row justify-center text-[0.5rem] gap-[0.15rem]">
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAC</p><p class="font-extrabold">${playerfound.pace}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">SHO</p><p class="font-extrabold">${playerfound.shooting}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PAS</p><p class="font-extrabold">${playerfound.passing}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DRI</p><p class="font-extrabold">${playerfound.dribbling}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">DEF</p><p class="font-extrabold">${playerfound.defending}</p></div>
+                <div class="flex flex-col items-center -space-y-[0.1rem]"><p class="font-semibold">PHY</p><p class="font-extrabold">${playerfound.physical}</p></div>
+            </div>
+        `;
+    
+    containerPlayer.classList.add("top-[44%]","h-full");
     containerPlayer.innerHTML = `
-        <div onclick="hoverDiv('${playerfound.name}')" class="divPlayerChange flex flex-col items-center justify-center w-full h-full text-white">
-            <img src="${playerfound.photo}" class="w-[5rem] playerImage">
-            <p class="playerName text-sm text-white w-3/5">${playerfound.name}</p>
+        <div onclick="hoverDiv('${playerfound.name}')" class="divPlayerChange flex flex-col items-center justify-center w-full h-full">
+            <img src="${playerfound.photo}" class="w-[5rem] playerImage ">
+            <p class="playerName text-[0.5rem] w-full font-bold">${playerfound.name}</p>
+            <div class="w-full  flex flex-col items-center absolute lg:top-[76%] md:top-[63%]">
+                ${statisticsHTML}
+                <div class="palyer_statistics w-[10%] h-full flex flex-row justify-center gap-2">
+                    <img src="${playerfound.flag}" h-[8%]  alt="${playerfound.nationality}">
+                    <img src="${playerfound.League}" alt="${playerfound.League}">
+                    <img src="${playerfound.logo}" alt="${playerfound.club}">
+                </div>
+            </div>
         </div>
     `;
 }
@@ -792,6 +736,7 @@ function addNewSquad(){
     if( CurentsquadList.length === 11 ){
         squadList.push(CurentsquadList);
         localStorage.setItem("SquadList", JSON.stringify(squadList));
+        location.reload();
     }
     else{
     
@@ -826,7 +771,7 @@ function hoverDiv(playerName){
                     }
                     const parentDiv = playerParagraphs[i].parentElement;
                     const plusButton = parentDiv.parentElement;
-
+                    plusButton.classList.remove("top-[44%]","h-full");
                     parentDiv.innerHTML = `
                         <svg class="w-1/2 fill-current text-slate-800 group-hover:text-green-600" viewBox="0 0 85 84" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M42.5 20.5C43.6935 20.5 44.8381 20.9741 45.682 21.818C46.5259 22.6619 47 23.8065 47 25V37.5H59.5C60.6935 37.5 61.8381 37.9741 62.682 38.818C63.5259 39.6619 64 40.8065 64 42C64 43.1935 63.5259 44.3381 62.682 45.182C61.8381 46.0259 60.6935 46.5 59.5 46.5H47V59C47 60.1935 46.5259 61.3381 45.682 62.182C44.8381 63.0259 43.6935 63.5 42.5 63.5C41.3065 63.5 40.1619 63.0259 39.318 62.182C38.4741 61.3381 38 60.1935 38 59V46.5H25.5C24.3065 46.5 23.1619 46.0259 22.318 45.182C21.4741 44.3381 21 43.1935 21 42C21 40.8065 21.4741 39.6619 22.318 38.818C23.1619 37.9741 24.3065 37.5 25.5 37.5H38V25C38 23.8065 38.4741 22.6619 39.318 21.818C40.1619 20.9741 41.3065 20.5 42.5 20.5Z" fill="currentColor"/>
@@ -857,7 +802,7 @@ function allPlayers(){
     const players = JSON.parse(localStorage.getItem("playersObject")) || [];
     const playerList = document.getElementById("playerList");
     console.log("playerList : ", playerList);
-    playerList.className = "flex w-full h-[66%] overflow-auto";
+    playerList.className = " w-full xl:h-[66%] lg:h-[41%] overflow-auto flex";
     playerList.innerHTML = "";
     const playerDiv1 = document.createElement("div");
     playerDiv1.className = "w-full h-full mx-2";
@@ -1172,13 +1117,15 @@ function formValidation(event){
         numberInput = numberInput.concat(["Diving", "Handling", "Kicking", "Reflexes", "Speed", "Positioning"]);
     }
     for(let i = 0; i < textInput.length; i++){
-        let input = document.getElementById(textInput[i]).value
-        if(input.length < 1){
+        let input = document.getElementById(textInput[i]);
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml-4'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${textInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
+
             return false;
         }
         else{
@@ -1191,13 +1138,15 @@ function formValidation(event){
         }
     }
     for(let i = 0; i < numberInput.length; i++){
-        let input = document.getElementById(numberInput[i]).value;
-        if(input.length < 1){
+        let input = document.getElementById(numberInput[i]);
+        
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${numberInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
             return false
         }
         else{
@@ -1209,13 +1158,14 @@ function formValidation(event){
         }
     }
     for(let i = 0; i < imgInput.length; i++){
-        let input = document.getElementById(imgInput[i]).value;
-        if(input.length < 1){
+        let input = document.getElementById(imgInput[i]);
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${imgInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
             return false;
         }
         else{
@@ -1226,7 +1176,7 @@ function formValidation(event){
             }
         }
     }
-    alert("all is ok");
+    // alert("all is ok");
     addNewPlayer(textInput,imgInput,numberInput);
 
 }
@@ -1238,6 +1188,8 @@ function textValidation(id){
     if (Pattern.test(textInput.value)) {
         errorMessage.classList.add("hidden");
         errorMessage.innerHTML = '';
+        textInput.classList.remove("border-red-500");
+
         return true;
     }
     else{
@@ -1247,6 +1199,7 @@ function textValidation(id){
             <p>The ${id} is Incorrect. Please use letters only</p>
         `;
         errorMessage.classList.remove("hidden");
+        textInput.classList.add("border","border-red-500");
         return false;
     }
 }
@@ -1527,11 +1480,15 @@ function squadPage(){
 
     const squadslist = JSON.parse(localStorage.getItem("SquadList")) || [];
     console.log(squadslist);
-
     const squadPage = document.getElementById("squadPage");
-    squadPage.className = "w-full h-full flex flex-col flex-wrap";
+    squadPage.className = "w-full h-full flex flex-col flex-wrap items-center my-8";
     squadPage.innerHTML = "";
-
+    const addSquad = document.createElement("div");
+    addSquad.className = "flex justify-end items-end h-1/2 w-[69%]";
+    addSquad.innerHTML = `
+        <button  onclick="window.location.href='index.html'" class="bg-[#5f4e0c] h-full p-2 rounded-md w-1/4 text-2xl font-bold text-center  text-yellow-400 " >Add new Squad</button>
+    `;
+    squadPage.appendChild(addSquad);
     
     for(let i = 0; i < squadslist.length; i++){
         let squad = squadslist[i];
@@ -1541,15 +1498,16 @@ function squadPage(){
         const squadContainer = document.createElement("div");
         
         const squadHead = document.createElement("div");
-        squadHead.className = "flex text-2xl font-bold text-center  text-yellow-400 ";
+
+
+        squadHead.className = "flex w-[69%] my-3 justify-between text-2xl font-bold text-center  text-yellow-400 ";
         squadHead.innerHTML = `
-        <h1 class="bg-[#5f4e0c] rounded-md mx-5 w-2/3 ">Squad ${i+1}</h1>
-        <button class="bg-[#5f4e0c] rounded-md mx-5">Modify</button>
-        <button class="bg-[#5f4e0c] rounded-md mx-5">Delete</button>
+        <h1 class="bg-[#5f4e0c] rounded-md px-5 w-1/3 ">Squad ${i+1}</h1>
+        <button onclick="deleteSquad(${i})" class="bg-[#5f4e0c] rounded-md px-5">Delete</button>
 
         
         `;
-        squadContainer.appendChild(squadHead);
+        // squadContainer.appendChild(squadHead);
         squadContainer.className = "w-auto p-8 h-full flex flex items-center justify-center border border-[#dfbe6b] rounded-lg grid grid-rows-2 grid-flow-col gap-4 ";
         for(let j = 0; j < 11; j++){
             const player = squad[j];
@@ -1572,12 +1530,43 @@ function squadPage(){
 }
 
 
+function deleteSquad(index){
+
+    const squadslist = JSON.parse(localStorage.getItem("SquadList"));
+    squadslist.splice(index, 1);
+    localStorage.setItem("SquadList", JSON.stringify(squadslist));
+    location.reload();
+
+}
 
 
 
+function displayPlayers(){
+    const displayPlayer = document.getElementById("displayPlayer");
+    const closeAllPlayersSection = document.getElementById("closeAllPlayersSection");
+    closeAllPlayersSection.style.display = "block";
+    const displayPlayerSection = document.getElementById("displayPlayerSection");
+    const showAllPlayers = document.getElementById("showAllPlayers");
+    showAllPlayers.classList.add("hidden");
+    displayPlayerSection.classList.remove("hidden");
+    displayPlayerSection.classList.add("flex");
+    displayPlayer.classList.remove("md:hidden", "max-sm:hidden", "sm:hidden");
+    displayPlayer.classList.add("w-2/3");
+    displayPlayerSection.appendChild(displayPlayer);
 
-
-
+}
+function closeAllPlayersSection(){
+    const displayPlayer = document.getElementById("displayPlayer");
+    const displayPlayerSection = document.getElementById("displayPlayerSection");
+    const closeAllPlayersSection = document.getElementById("closeAllPlayersSection");
+    closeAllPlayersSection.style.display = "none";
+    const showAllPlayers = document.getElementById("showAllPlayers");
+    showAllPlayers.classList.remove("hidden");
+    displayPlayerSection.classList.add("hidden");
+    displayPlayerSection.classList.remove("flex");
+    displayPlayer.classList.add("md:hidden", "max-sm:hidden", "sm:hidden");
+    displayPlayer.classList.remove("w-2/3");
+}
 
 
 
