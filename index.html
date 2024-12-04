@@ -84,15 +84,18 @@
 
 
     <section class="">
-        <div class="flex justify-center  gap-10  mt-10 w-full">
-            <h1 class="text-3xl font-medium text-[#6fb973]">choisie le type formation</h1>
-            <select onchange="repositionCards(this.value)" name="" id="" class="text-xl font-medium px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md">
+        <div class="flex justify-center gap-10  mt-10 w-full">
+            <h1 class="text-3xl max-sm:text-[1.3rem] font-medium text-[#6fb973]">choisie le type formation</h1>
+            <select onchange="repositionCards(this.value)" name="" id="" class="text-xl font-medium max-sm:px-0 max-sm:text-[0.8rem]  px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md">
                 <option value="4-4-2">4-4-2</option>
                 <option value="4-3-3">4-3-3</option>
             </select>
         </div>
+        <div id="btndisplayPlayer" class="lg:hidden flex justify-end w-[88%] mx-auto my-4">
+            <button onclick="displayPlayers()" class="w-[44%] text-xl font-medium  py-2  bg-[#5f4e0c] text-yellow-400 rounded-md max-sm:text-[0.8rem] max-sm:w-1/4 max-sm:py-0">show playres</button>
+        </div>
         <div class="flex justify-center gap-5 ">
-            <div class="w-2/3 -mt-32 flex flex-col justify-center">
+            <div class="w-2/3 xl:-mt-20 lg:-mt-[21rem] flex flex-col justify-center">
                 <div class="std relative">
                     <div class="cardsParent">
                       <div class="cart bg-badge-gold flex flex-col items-center">
@@ -310,17 +313,18 @@
 
                   </div>
                   <div class="flex  mt-10 w-full justify-center">
-                      <button onclick="addNewSquad()" class="text-xl font-medium px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md">Add Squad</button>
+                      <button onclick="addNewSquad()" class="text-xl font-medium px-28 py-2  bg-[#5f4e0c] text-yellow-400 rounded-md max-sm:text-[0.8rem]  max-sm:py-0 max-sm:px-2">Add Squad</button>
                   </div>
 
             </div>
-            <div class="pt-20 pr-10 w-1/3 lg:block md:hidden max-sm:hidden sm:hidden">
+            <div id="displayPlayer" class="pt-20 pr-10 xl:w-1/3 lg:2/5 lg:block md:hidden max-sm:hidden sm:hidden">
                 <div class="w-full flex justify-end gap-4">
-                    <button onclick="allPlayers()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Show All Players</button>
+                    <button id="showAllPlayers" onclick="allPlayers()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Show All Players</button>
                     <button onclick="formNewPlayer()" class="text-sm font-medium px-6 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">Add New Player</button>
+                    <button id="closeAllPlayersSection" onclick="closeAllPlayersSection()" class="hidden text-sm font-medium px-5 py-2 bg-[#5f4e0c] text-yellow-400 rounded-md">✖</button>
+
                 </div>
                 <div id="playerList" class="">
- 
                 </div>
             </div>
 
@@ -334,9 +338,9 @@
                 <div class="flex justify-end">
                     <button onclick="hiddePlayerSection()" class="bg-[#5f4e0c]  ">✖</button>
                 </div>
-                <div class="flex gap-8">
+                <div class="flex lg:flex-row sm:flex-col sm:h-80 lg:overflow-hidden sm:overflow-auto gap-8">
         
-                    <div class="w-1/2">
+                    <div class="w-1/2 sm:w-full">
                         <div>
                             <label for="name">Name:</label>
                             <input onchange="textValidation('Name')" type="text" id="Name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
@@ -393,7 +397,7 @@
                     </div>
 
                     
-                    <div class="w-1/2 playerProperties">
+                    <div class="w-1/2 sm:w-full playerProperties">
                         <div class="">
                             <label for="pac">PAC (Pace):</label>
                             <input onchange="numberValidation('Pace')" type="number" id="Pace" name="pac" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
@@ -420,7 +424,7 @@
                         </div>
                         
                     </div>
-                    <div id="goalKeeperProperties" class="w-1/2 goalKeeperProperties hidden">
+                    <div id="goalKeeperProperties" class="w-1/2 sm:w-full goalKeeperProperties hidden">
                         <div class="">
                             <label for="diving">Diving:</label>
                             <input onchange="numberValidation('Diving')" type="number" id="Diving" name="diving" min="1" max="99" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
@@ -447,14 +451,24 @@
                         </div>
         
                     </div>
+                    <div class="lg:hidden sm:block">
+                        <div class="w-full">
+                            <label for="Player-Image">Player Image Src:</label>
+                            <input onchange="imgValidation('Player-Image')" type="text" id="Player-Image" name="Player-Image" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <div class="w-full">
+                            <label for="Club-Name">Player Club Name:</label>
+                            <input onchange="textValidation('Name')" type="text" id="Club-Name" name="Club-Name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
+                        </div>
+                    </div>
                     
                 </div>
-                <div class="flex gap-8">
-                    <div class="w-1/2">
+                <div class="flex gap-8 lg:block sm:hidden">
+                    <div class="w-1/2 sm:w-full">
                         <label for="Player-Image">Player Image Src:</label>
                         <input onchange="imgValidation('Player-Image')" type="text" id="Player-Image" name="Player-Image" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                     </div>
-                    <div class="w-1/2">
+                    <div class="w-1/2 sm:w-full">
                         <label for="Club-Name">Player Club Name:</label>
                         <input onchange="textValidation('Name')" type="text" id="Club-Name" name="Club-Name" class="w-full px-3 py-2 border border-gray-300 rounded-md" />
                     </div>
@@ -463,7 +477,7 @@
                     <button type="submit"  class="w-full px-4 py-2 border-black bg-[#5f4e0c] border-2 text-yellow-400 hover:border-yellow-400 rounded-md">Add Player</button>
                 </div>
             </form>
-            <div id="error-message" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border-2 border-[#5f4e0c] text-green-600 rounded shadow-lg hidden">
+            <div id="error-message" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border-2 border-[#5f4e0c] text-red-600 rounded shadow-lg hidden">
             </div>
 
         </div>
@@ -537,6 +551,10 @@
             </div>
 
         </div> -->
+
+    </section>
+
+    <section id="displayPlayerSection" class="fixed hidden flex-col w-full h-full top-0 overflow-auto items-center justify-center bg-[#141004]   bg-opacity-95 ">
 
     </section>
 

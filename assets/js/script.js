@@ -802,7 +802,7 @@ function allPlayers(){
     const players = JSON.parse(localStorage.getItem("playersObject")) || [];
     const playerList = document.getElementById("playerList");
     console.log("playerList : ", playerList);
-    playerList.className = " w-full h-[66%] overflow-auto lg:flex md:hidden max-sm:hidden sm:hidden";
+    playerList.className = " w-full xl:h-[66%] lg:h-[41%] overflow-auto flex";
     playerList.innerHTML = "";
     const playerDiv1 = document.createElement("div");
     playerDiv1.className = "w-full h-full mx-2";
@@ -1117,13 +1117,15 @@ function formValidation(event){
         numberInput = numberInput.concat(["Diving", "Handling", "Kicking", "Reflexes", "Speed", "Positioning"]);
     }
     for(let i = 0; i < textInput.length; i++){
-        let input = document.getElementById(textInput[i]).value
-        if(input.length < 1){
+        let input = document.getElementById(textInput[i]);
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml-4'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${textInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
+
             return false;
         }
         else{
@@ -1136,13 +1138,15 @@ function formValidation(event){
         }
     }
     for(let i = 0; i < numberInput.length; i++){
-        let input = document.getElementById(numberInput[i]).value;
-        if(input.length < 1){
+        let input = document.getElementById(numberInput[i]);
+        
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${numberInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
             return false
         }
         else{
@@ -1154,13 +1158,14 @@ function formValidation(event){
         }
     }
     for(let i = 0; i < imgInput.length; i++){
-        let input = document.getElementById(imgInput[i]).value;
-        if(input.length < 1){
+        let input = document.getElementById(imgInput[i]);
+        if(input.value.trim() === ""){
             errorMessage.classList.remove("hidden");
             errorMessage.innerHTML = `
             <button onclick='closeErrorMsg()' class='flex justify-end w-full -mt-4 ml'>✖</button> 
-            <p>Please fill in all the fields.</p>
+            <p>Please fill in the ${imgInput[i]}.</p>
             `;
+            input.classList.add("border","border-red-500");
             return false;
         }
         else{
@@ -1171,7 +1176,7 @@ function formValidation(event){
             }
         }
     }
-    alert("all is ok");
+    // alert("all is ok");
     addNewPlayer(textInput,imgInput,numberInput);
 
 }
@@ -1183,6 +1188,8 @@ function textValidation(id){
     if (Pattern.test(textInput.value)) {
         errorMessage.classList.add("hidden");
         errorMessage.innerHTML = '';
+        textInput.classList.remove("border-red-500");
+
         return true;
     }
     else{
@@ -1192,6 +1199,7 @@ function textValidation(id){
             <p>The ${id} is Incorrect. Please use letters only</p>
         `;
         errorMessage.classList.remove("hidden");
+        textInput.classList.add("border","border-red-500");
         return false;
     }
 }
@@ -1533,8 +1541,32 @@ function deleteSquad(index){
 
 
 
+function displayPlayers(){
+    const displayPlayer = document.getElementById("displayPlayer");
+    const closeAllPlayersSection = document.getElementById("closeAllPlayersSection");
+    closeAllPlayersSection.style.display = "block";
+    const displayPlayerSection = document.getElementById("displayPlayerSection");
+    const showAllPlayers = document.getElementById("showAllPlayers");
+    showAllPlayers.classList.add("hidden");
+    displayPlayerSection.classList.remove("hidden");
+    displayPlayerSection.classList.add("flex");
+    displayPlayer.classList.remove("md:hidden", "max-sm:hidden", "sm:hidden");
+    displayPlayer.classList.add("w-2/3");
+    displayPlayerSection.appendChild(displayPlayer);
 
-
+}
+function closeAllPlayersSection(){
+    const displayPlayer = document.getElementById("displayPlayer");
+    const displayPlayerSection = document.getElementById("displayPlayerSection");
+    const closeAllPlayersSection = document.getElementById("closeAllPlayersSection");
+    closeAllPlayersSection.style.display = "none";
+    const showAllPlayers = document.getElementById("showAllPlayers");
+    showAllPlayers.classList.remove("hidden");
+    displayPlayerSection.classList.add("hidden");
+    displayPlayerSection.classList.remove("flex");
+    displayPlayer.classList.add("md:hidden", "max-sm:hidden", "sm:hidden");
+    displayPlayer.classList.remove("w-2/3");
+}
 
 
 
