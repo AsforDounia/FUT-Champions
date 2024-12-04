@@ -1026,7 +1026,7 @@ function playersPage(){
                 <h1>${player.position}</h1>
             </div>
 
-            <div class="absolute top-[14%] left-1/2 transform -translate-x-1/2 w-32 sm:w-36 md:w-40  ">
+            <div class="absolute top-[14%] left-1/2 transform -translate-x-1/2 w-1/2  ">
                 <img src="${player.photo}" alt="Player Image" class="object-cover w-full h-full">
             </div>
 
